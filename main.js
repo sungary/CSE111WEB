@@ -14,7 +14,8 @@ function RUN(){
     } else if(v == "EDIT"){
         alert("EDIT");
     } else {
-        alert("None Selected");
+        //alert("None Selected");
+        document.getElementById("SELECTERROR").innerHTML = "Please Select an Option"
     }
 
 
