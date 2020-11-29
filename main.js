@@ -4,5 +4,7 @@
 
 function RUN(){
     var task = document.getElementById("VALUE").value;
-    alert(task)
+    if(task == "ADD"){
+        alert("ADD")
+    }
 }
