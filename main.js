@@ -4,5 +4,18 @@
 
 function RUN(){
     var v = document.getElementById("TASK").value;
-    alert(v)
+    
+    if(v == "SEARCH"){
+        alert("SEARCH");
+    } else if(v == "ADD"){
+        alert("ADD");
+    } else if(v == "DELETE"){
+        alert("DELETE");
+    } else if(v == "EDIT"){
+        alert("EDIT");
+    } else {
+        alert("None Selected");
+    }
+
+
 }
