@@ -3,6 +3,6 @@
 // }
 
 function RUN(){
-    var task = document.getElementById("VALUE");
-    alert(String(task))
+    var task = document.getElementById("VALUE").value;
+    alert(task)
 }
