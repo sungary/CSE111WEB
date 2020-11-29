@@ -3,8 +3,6 @@
 // }
 
 function RUN(){
-    var v = document.getElementById("VALUE").value;
-    if(v == "ADD"){
-        alert("ADD")
-    }
+    var v = document.getElementById("TASK").value;
+    alert(v)
 }
