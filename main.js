@@ -1,7 +1,8 @@
-function clickHello(){
-    alert("THIS BUTTON WORKS");
-}
+// function clickHello(){
+//     alert("THIS BUTTON WORKS");
+// }
 
 function RUN(){
-    alert("RUN")
+    var task = document.getElementById("VALUE");
+    alert(task)
 }
