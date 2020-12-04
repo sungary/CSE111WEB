@@ -6,6 +6,7 @@ function RUN(){
     var v = document.getElementById("TASK").value;
     
     if(v == "SEARCH"){
+        document.getElementById("SELECTERROR").innerHTML = "";
         alert("SEARCH");
     } else if(v == "ADD"){
         alert("ADD");
@@ -15,7 +16,7 @@ function RUN(){
         alert("EDIT");
     } else {
         //alert("None Selected");
-        document.getElementById("SELECTERROR").innerHTML = "Please Select an Option"
+        document.getElementById("SELECTERROR").innerHTML = "Please Select an Option";
     }
 
 
