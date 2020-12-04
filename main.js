@@ -2,7 +2,7 @@
 //     alert("THIS BUTTON WORKS");
 // }
 const sqlite3 = require("sqlite3");
-const Promise = require("bluebird");
+//const Promise = require("bluebird");
 
 class data {
     constructor(dbFilePath) {
