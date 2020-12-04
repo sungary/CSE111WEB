@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <title>Hollow Knight Completion Tracker</title>
     <script src="main.js"></script>
-    
+    <style>
+        h1{text-align: center;}
+        h2{text-align: center;}
+        p{text-align: center;}
+    </style>
 </head>
 
-<body>
+<bodystyle="background-color:beige;">
     <h1>Hollow Knight Completion Tracker</h1>
     <!-- <h2>Hello </h2>
     <button onclick="clickHello()">button test</button><br><br>
@@ -16,6 +20,8 @@
 
     <h3>
         <label>What do you want to do?</label>
+    </h3>
+    <p>
         <select id="TASK">
             <option value=""></option>
             <option value="SEARCH">SEARCH</option>
@@ -23,13 +29,14 @@
             <option value="DELETE">DELETE</option>
             <option value="EDIT">EDIT</option>
         </select>
-        
+    </p>
     
-        <div>
-            <button onclick = "RUN()">RUN</button>
-        </div> 
-        <div id="SELECTERROR"></div>
-    </h3>
+    
+
+    <div>
+        <button onclick = "RUN()">RUN</button>
+    </div> 
+    <div id="SELECTERROR"></div>
     
     ><h4>
         <textarea name="inputs" id="inputs" cols="5" rows="1"></textarea>
