@@ -56,6 +56,8 @@ class data {
         //     document.getElementById("SELECTERROR").innerHTML = "Please Select an Option";
         // }
     }
+
+    
     
     SEARCH(){
         

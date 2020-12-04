@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <title>Hollow Knight Completion Tracker</title>
     <script src="main.js"></script>
-    <!-- <script>
-
-    </script> -->
+    <script>
+        var test = new data("database.sqlite")
+        function RUNQ(){
+            test.RUN()
+        }
+    </script>
     <style>
         h1{text-align: center;}
         h2{text-align: center;}
@@ -42,7 +45,7 @@
         <input type="text5" placeholder="Found" id="input5">
     </h4>
     <h5>
-        <button onclick = "data.RUN()">RUN</button><br>
+        <button onclick = "RUNQ()">RUN</button><br>
         <div id="SELECTERROR"></div>
     </h5>
     <h6>
