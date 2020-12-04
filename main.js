@@ -4,13 +4,17 @@
 // const sqlite3 = require("sqlite3");
 // const Promise = require("bluebird");
 
+
+
+
 function RUN(){
     
     var v = document.getElementById("TASK").value;
     
     if(v == "SEARCH"){
-        //document.getElementById("SELECTERROR").innerHTML = "";
-        alert("SEARCH");
+        document.getElementById("SELECTERROR").innerHTML = "";
+        var input1 = document.getElementById("input1");
+        alert(input1);
     } else if(v == "ADD"){
         alert("ADD");
     } else if(v == "DELETE"){
@@ -22,5 +26,9 @@ function RUN(){
         document.getElementById("SELECTERROR").innerHTML = "Please Select an Option";
     }
 
+
+}
+
+function SEARCH(){
 
 }
