@@ -1,54 +1,63 @@
-// function clickHello(){
-//     alert("THIS BUTTON WORKS");
-// }
-// const sqlite3 = require("sqlite3");
-// const Promise = require("bluebird");
+const sqlite3 = require("sqlite3");
+const Promise = require("bluebird");
 
-function RUN(){
-    var v = document.getElementById("TASK").value;
-    var db = openDatabase('database', '1.0', 'd', 2 * 1024 * 1024);
-    if(v == "SEARCH"){
-        document.getElementById("SELECTERROR").innerHTML = "";
-        var input1 = document.getElementById("input1");
-        var input2 = document.getElementById("input2");
-        var input3 = document.getElementById("input3");
-        var input4 = document.getElementById("input4");
-        var input5 = document.getElementById("input5");
-        SEARCH(db,input1.value,input2.value,input3.value,input4.value,input5.value)
-        //alert(input1.value);
-    } else if(v == "ADD"){
-        document.getElementById("SELECTERROR").innerHTML = "";
-        var input1 = document.getElementById("input1");
-        var input2 = document.getElementById("input2");
-        var input3 = document.getElementById("input3");
-        var input4 = document.getElementById("input4");
-        var input5 = document.getElementById("input5");
-        alert("ADD");
-    } else if(v == "DELETE"){
-        document.getElementById("SELECTERROR").innerHTML = "";
-        var input1 = document.getElementById("input1");
-        var input2 = document.getElementById("input2");
-        var input3 = document.getElementById("input3");
-        var input4 = document.getElementById("input4");
-        var input5 = document.getElementById("input5");
-        alert("DELETE");
-    } else if(v == "EDIT"){
-        document.getElementById("SELECTERROR").innerHTML = "";
-        var input1 = document.getElementById("input1");
-        var input2 = document.getElementById("input2");
-        var input3 = document.getElementById("input3");
-        var input4 = document.getElementById("input4");
-        var input5 = document.getElementById("input5");
-        alert("EDIT");
-    } else {
-        //alert("None Selected");
-        document.getElementById("SELECTERROR").innerHTML = "Please Select an Option";
+class datamain{
+    constructor(dbFilePath) {
+        this.db = new sqlite3.Database(dbFilePath, (err) => {
+            if (err) {
+                console.log('Could not connect to database', err)
+            } else {
+                console.log('Connected to database')
+            }
+        })
+    }
+    all(sql, params = []) {
+        return new Promise((resolve, reject) => {
+            this.db.all(sql, params, (err, rows) => {
+                if (err) {
+                    console.log('Error running sql: ' + sql)
+                    console.log(err)
+                    reject(err)
+                } else {
+                    resolve(rows)
+                }
+            })
+        })
+    }
+    
+    RUN(task,input1,input2,input3,input4,input5){
+        //console.log("main.js")
+
+        if(task == "SEARCH"){
+            console.log(input1);
+            console.log(input2);
+            if(input1 != null && input2 == "" && input3 == "" && input4 == "" && input5 == ""){
+                return this.wholetable(input1);
+            }
+
+            
+        } else if(task == "ADD"){
+
+;
+        } else if(task == "DELETE"){
+
+
+        } else if(task == "EDIT"){
+
+        } else {
+            
+            //document.getElementById("SELECTERROR").innerHTML = "Please Select an Option";
+        }
+    
     }
 
+    wholetable(input1){
+        //console.log("TEST")
+        return this.all(
+            "SELECT * FROM " + input1,
+            []
+        )
+    }
 }
 
-function SEARCH(db,input1,input2,input3,input4,input5){
-    db.transaction(function (tx){
-        tx.exqcuteSql("SELECT * FROM Bosses");
-    })
-}
+module.exports = datamain

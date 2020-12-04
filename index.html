@@ -3,11 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Hollow Knight Completion Tracker</title>
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        var test = new data("database.sqlite")
         function RUNQ(){
-            test.RUN()
+            var task = document.getElementById("TASK").value;
+            var input1 = document.getElementById("input1").value;
+            var input2 = document.getElementById("input2").value;
+            var input3 = document.getElementById("input3").value;
+            var input4 = document.getElementById("input4").value;
+            var input5 = document.getElementById("input5").value;
+
+            var result = document.getElementById('result');
+            result.innerHTML = "";
+
+            const API_URL = `http://127.0.0.1:8092/task`;
+            axios.get(`${API_URL}`, {
+                params: {
+                    input1,input2,input3,input4,input5,task
+                }
+            }).then(response => {
+               //console.log(response.data.data);
+
+               if (response.data.data.length == 0) {
+                  return;
+               }
+
+               let thead = result.createTHead();
+               let row = thead.insertRow();
+               for (key in response.data.data[0]) {
+                  //console.log(key);
+
+                  let th = document.createElement("th");
+                  let text = document.createTextNode(key);
+                  th.appendChild(text);
+                  row.appendChild(th);
+               }
+               
+               for (x=0; x<response.data.data.length; x++) {
+                  //console.log(response.data.data[x].maker);
+
+                  let row = result.insertRow();
+                  for (k in response.data.data[x]) {
+                     console.log(k);
+
+                     let cell = row.insertCell();
+                     let text = document.createTextNode(response.data.data[x][k]);
+                     cell.appendChild(text);
+                  }
+               }
+            })
         }
     </script>
     <style>
