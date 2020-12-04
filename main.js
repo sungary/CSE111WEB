@@ -6,7 +6,7 @@ function RUN(){
     var v = document.getElementById("TASK").value;
     
     if(v == "SEARCH"){
-        document.getElementById("SELECTERROR").innerHTML = "";
+        //document.getElementById("SELECTERROR").innerHTML = "";
         alert("SEARCH");
     } else if(v == "ADD"){
         alert("ADD");
