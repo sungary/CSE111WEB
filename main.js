@@ -14,7 +14,7 @@ function RUN(){
     if(v == "SEARCH"){
         document.getElementById("SELECTERROR").innerHTML = "";
         var input1 = document.getElementById("input1");
-        alert(input1);
+        alert(input1.value);
     } else if(v == "ADD"){
         alert("ADD");
     } else if(v == "DELETE"){
