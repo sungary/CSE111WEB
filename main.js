@@ -25,48 +25,80 @@ class datamain{
         })
     }
     
-    RUN(task,input1,input2,input3,input4,input5){
+    RUN(task,usetable,input1,input2,input3,input4,input5){
         //console.log("main.js")
 
         if(task == "SEARCH"){
             //console.log(input);
             // console.log(input2);
-            if(input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 == ""){
-                return this.wholetable(input1);
-            } else if(input1 != "" && input2 != "" && input3 == "" && input4 == "" && input5 == ""){
-                return this.SearchByTableReq(input1,input2);
-            } else if(input1 != "" && input2 == "" && input3 != "" && input4 == "" && input5 == ""){
-                return this.SearchByTableLoc(input1,input3);
-            } else if(input1 != "" && input2 == "" && input3 == "" && input4 != "" && input5 == ""){
-                return this.SearchByTablePer(input1,parseFloat(input4));
-            } else if(input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 != ""){
-                return this.SearchByTableFound(input1,input5);
-            } else if(input1 != "" && input2 != "" && input3 != "" && input4 == "" && input5 == ""){
-                return this.SearchByTableReqLoc(input1,input2,input3);
-            } else if(input1 != "" && input2 != "" && input3 == "" && input4 != "" && input5 == ""){
-                return this.SearchByTableReqPer(input1,input2,input4);
-            } else if(input1 != "" && input2 != "" && input3 == "" && input4 == "" && input5 != ""){
-                return this.SearchByTableReqFound(input1,input2,input5);
-            } else if(input1 != "" && input2 != "" && input3 != "" && input4 != "" && input5 == ""){
-                return this.SearchByTableReqLocPer(input1,input2,input3,input4);
-            } else if(input1 != "" && input2 != "" && input3 != "" && input4 == "" && input5 != ""){
-                return this.SearchByTableReqLocFound(input1,input2,input3,input5);
-            } else if(input1 != "" && input2 != "" && input3 != "" && input4 != "" && input5 != ""){
-                return this.SearchByTableReqLocPerFound(input1,input2,input3,input4,input5);
-            } else if(input1 != "" && input2 == "" && input3 != "" && input4 != "" && input5 == ""){
-                return this.SearchByTableLocPer(input1,input3,input4);
-            } else if(input1 != "" && input2 == "" && input3 != "" && input4 == "" && input5 != ""){
-                return this.SearchByTableLocFound(input1,input3,input5);
-            } else if(input1 != "" && input2 == "" && input3 == "" && input4 != "" && input5 != ""){
-                return this.SearchByTablePerFound(input1,input4,input5);
-            } else if(input1 != "" && input2 != "" && input3 == "" && input4 != "" && input5 != ""){
-                return this.SearchByTableReqPerFound(input1,input2,input4,input5);
-            } else if(input1 != "" && input2 == "" && input3 != "" && input4 != "" && input5 != ""){
-                return this.SearchByTableLocPerFound(input1,input3,input4,input5);
+            if(usetable != "" && input1 == "" && input2 == "" && input3 == "" && input4 == "" && input5 == ""){
+                return this.wholetable(usetable);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 == "" && input4 == "" && input5 == ""){
+                return this.SearchByTableReq(usetable,input2);
+            } else if(usetable != "" && input1 == "" && input2 == "" && input3 != "" && input4 == "" && input5 == ""){
+                return this.SearchByTableLoc(usetable,input3);
+            } else if(usetable != "" && input1 == "" && input2 == "" && input3 == "" && input4 != "" && input5 == ""){
+                return this.SearchByTablePer(usetable,parseFloat(input4));
+            } else if(usetable != "" && input1 == "" && input2 == "" && input3 == "" && input4 == "" && input5 != ""){
+                return this.SearchByTableFound(usetable,input5);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 != "" && input4 == "" && input5 == ""){
+                return this.SearchByTableReqLoc(usetable,input2,input3);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 == "" && input4 != "" && input5 == ""){
+                return this.SearchByTableReqPer(usetable,input2,input4);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 == "" && input4 == "" && input5 != ""){
+                return this.SearchByTableReqFound(usetable,input2,input5);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 != "" && input4 != "" && input5 == ""){
+                return this.SearchByTableReqLocPer(usetable,input2,input3,input4);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 != "" && input4 == "" && input5 != ""){
+                return this.SearchByTableReqLocFound(usetable,input2,input3,input5);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 != "" && input4 != "" && input5 != ""){
+                return this.SearchByTableReqLocPerFound(usetable,input2,input3,input4,input5);
+            } else if(usetable != "" && input1 == "" && input2 == "" && input3 != "" && input4 != "" && input5 == ""){
+                return this.SearchByTableLocPer(usetable,input3,input4);
+            } else if(usetable != "" && input1 == "" && input2 == "" && input3 != "" && input4 == "" && input5 != ""){
+                return this.SearchByTableLocFound(usetable,input3,input5);
+            } else if(usetable != "" && input1 == "" && input2 == "" && input3 == "" && input4 != "" && input5 != ""){
+                return this.SearchByTablePerFound(usetable,input4,input5);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 == "" && input4 != "" && input5 != ""){
+                return this.SearchByTableReqPerFound(usetable,input2,input4,input5);
+            } else if(usetable != "" && input1 == "" && input2 == "" && input3 != "" && input4 != "" && input5 != ""){
+                return this.SearchByTableLocPerFound(usetable,input3,input4,input5);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 == ""){
+                return this.SearchByTableName(usetable,input1);
+            } else if(usetable != "" && input1 != "" && input2 != "" && input3 == "" && input4 == "" && input5 == ""){
+                return this.SearchByTableNameReq(usetable,input1,input2);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 != "" && input4 == "" && input5 == ""){
+                return this.SearchByTableNameLoc(usetable,input1,input3);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 != "" && input5 == ""){
+                return this.SearchByTableNamePer(usetable,input1,input4);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 != ""){
+                return this.SearchByTableNameFound(usetable,input1,input5);
+            } else if(usetable != "" && input1 != "" && input2 != "" && input3 != "" && input4 == "" && input5 == ""){
+                return this.SearchByTableNameReqLoc(usetable,input1,input2,input3);
+            } else if(usetable != "" && input1 != "" && input2 != "" && input3 == "" && input4 != "" && input5 == ""){
+                return this.SearchByTableNameReqPer(usetable,input1,input2,input4);
+            } else if(usetable != "" && input1 != "" && input2 != "" && input3 == "" && input4 == "" && input5 != ""){
+                return this.SearchByTableNameReqFound(usetable,input1,input2,input5);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 != "" && input4 != "" && input5 == ""){
+                return this.SearchByTableNameLocPer(usetable,input1,input3,input4);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 != "" && input4 == "" && input5 != ""){
+                return this.SearchByTableNameLocFound(usetable,input1,input3,input5);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 != "" && input5 != ""){
+                return this.SearchByTableNamePerFound(usetable,input1,input4,input5);
+            } else if(usetable != "" && input1 != "" && input2 != "" && input3 != "" && input4 != "" && input5 == ""){
+                return this.SearchByTableNameReqLocPer(usetable,input1,input2,input3,input4);
+            } else if(usetable != "" && input1 != "" && input2 != "" && input3 != "" && input4 == "" && input5 != ""){
+                return this.SearchByTableNameReqLocFound(usetable,input1,input2,input3,input5);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 != "" && input4 != "" && input5 != ""){
+                return this.SearchByTableNameLocPerFound(usetable,input1,input3,input4,input5);
+            } else if(usetable != "" && input1 != "" && input2 != "" && input3 != "" && input4 != "" && input5 != ""){
+                return this.SearchByTableNameReqLocPerFound(usetable,input1,input2,input3,input4,input5);
             } 
 
         } else if(task == "ADD"){
-
+            if(usetable != "" && input1 != "" && input2 != "" && input3 != "" && input4 != "" && input5 != ""){
+                return this.ADDInsert(usetable,input1,input2,input3,input4,input5);
+            }
         } else if(task == "DELETE"){
 
         } else if(task == "EDIT"){
@@ -78,165 +110,307 @@ class datamain{
     
     }
 
-    getKey(input1){
-        if(input1 == "Bosses"){
+    getKey(usetable){
+        if(usetable == "Bosses"){
             return "b"
-        } else if(input1 == "Charms"){
+        } else if(usetable == "Charms"){
             return "c"
-        } else if(input1 == "Colosseum"){
+        } else if(usetable == "Colosseum"){
             return "co"
-        } else if(input1 == "DreamWorld"){
+        } else if(usetable == "DreamWorld"){
             return "dw"
-        } else if(input1 == "Dreamers"){
+        } else if(usetable == "Dreamers"){
             return "d"
-        } else if(input1 == "Equipment"){
+        } else if(usetable == "Equipment"){
             return "e"
-        } else if(input1 == "GodHome"){
+        } else if(usetable == "GodHome"){
             return "gh"
-        } else if(input1 == "GrimmTroupe"){
+        } else if(usetable == "GrimmTroupe"){
             return "gt"
-        } else if(input1 == "MaskShards"){
+        } else if(usetable == "MaskShards"){
             return "m"
-        } else if(input1 == "NailArts"){
+        } else if(usetable == "NailArts"){
             return "na"
-        } else if(input1 == "NailUpgrades"){
+        } else if(usetable == "NailUpgrades"){
             return "nu"
-        } else if(input1 == "Spells"){
+        } else if(usetable == "Spells"){
             return "s"
-        } else if(input1 == "VesselFragments"){
+        } else if(usetable == "VesselFragments"){
             return "v"
-        } else if(input1 == "WarriorDreams"){
+        } else if(usetable == "WarriorDreams"){
             return "wd"
         }
     }
 
-    wholetable(input1){
+    wholetable(usetable){
         //console.log("TEST")
         return this.all(
-            "SELECT * FROM " + input1,
+            "SELECT * FROM " + usetable,
             []
         )
     }
-    SearchByTableReq(input1,input2){
+    SearchByTableReq(usetable,input2){
         return this.all(
-            "SELECT * FROM " + input1 +
-            " WHERE " + this.getKey(input1) + "_requirements LIKE '%" + input2 +"%'",
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_requirements LIKE '%" + input2 +"%'",
             []
         )
     }
-    SearchByTableLoc(input1,input3){
+    SearchByTableLoc(usetable,input3){
         return this.all(
-            "SELECT * FROM " + input1 +
-            " WHERE " + this.getKey(input1) + "_location LIKE '%" + input3 +"%'",
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'",
             []
         )
     }
-    SearchByTablePer(input1,input4){
+    SearchByTablePer(usetable,input4){
         return this.all(
-            "SELECT * FROM " + input1 +
-            " WHERE " + this.getKey(input1) + "_percentage = ?",
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_percentage = ?",
             [input4]
         )
     }
-    SearchByTableFound(input1,input5){
+    SearchByTableFound(usetable,input5){
         return this.all(
-            "SELECT * FROM " + input1 +
-            " WHERE " + this.getKey(input1) + "_found = ?",
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_found = ?",
             [input5]
         )
     }
-    SearchByTableReqLoc(input1,input2,input3){
+    SearchByTableReqLoc(usetable,input2,input3){
         return this.all(
-            "SELECT * FROM " + input1 +
-            " WHERE " + this.getKey(input1) + "_requirements LIKE '%" + input2 +
-            "%' AND " + this.getKey(input1) + "_location LIKE '%" + input3 +"%'",
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_requirements LIKE '%" + input2 +
+            "%' AND " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'",
             []
         )
     }
-    SearchByTableReqPer(input1,input2,input4){
+    SearchByTableReqPer(usetable,input2,input4){
         return this.all(
-            "SELECT * FROM " + input1 +
-            " WHERE " + this.getKey(input1) + "_requirements LIKE '%" + input2 +
-            "%' AND " + this.getKey(input1) + "_percentage = ?",
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_requirements LIKE '%" + input2 +
+            "%' AND " + this.getKey(usetable) + "_percentage = ?",
             [input4]
         )
     }
-    SearchByTableReqFound(input1,input2,input5){
+    SearchByTableReqFound(usetable,input2,input5){
         return this.all(
-            "SELECT * FROM " + input1 +
-            " WHERE " + this.getKey(input1) + "_requirements LIKE '%" + input2 +
-            "%' AND " + this.getKey(input1) + "_found = ?",
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_requirements LIKE '%" + input2 +
+            "%' AND " + this.getKey(usetable) + "_found = ?",
             [input5]
         )
     }
-    SearchByTableReqLocPer(input1,input2,input3,input4){
+    SearchByTableReqLocPer(usetable,input2,input3,input4){
         return this.all(
-            "SELECT * FROM " + input1 +
-            " WHERE " + this.getKey(input1) + "_requirements LIKE '%" + input2 +
-            "%' AND " + this.getKey(input1) + "_location LIKE '%" + input3 +"%'" +
-            " AND " + this.getKey(input1) + "_percentage = ?",
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_requirements LIKE '%" + input2 +
+            "%' AND " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'" +
+            " AND " + this.getKey(usetable) + "_percentage = ?",
             [input4]
         )
     }
-    SearchByTableReqLocFound(input1,input2,input3,input5){
+    SearchByTableReqLocFound(usetable,input2,input3,input5){
         return this.all(
-            "SELECT * FROM " + input1 +
-            " WHERE " + this.getKey(input1) + "_requirements LIKE '%" + input2 +
-            "%' AND " + this.getKey(input1) + "_location LIKE '%" + input3 +"%'" +
-            " AND " + this.getKey(input1) + "_found = ?",
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_requirements LIKE '%" + input2 +
+            "%' AND " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'" +
+            " AND " + this.getKey(usetable) + "_found = ?",
             [input5]
         )
     }
-    SearchByTableReqLocPerFound(input1,input2,input3,input4,input5){
+    SearchByTableReqLocPerFound(usetable,input2,input3,input4,input5){
         return this.all(
-            "SELECT * FROM " + input1 +
-            " WHERE " + this.getKey(input1) + "_requirements LIKE '%" + input2 +
-            "%' AND " + this.getKey(input1) + "_location LIKE '%" + input3 +"%'" +
-            " AND " + this.getKey(input1) + "_percentage = ?" +
-            " AND " + this.getKey(input1) + "_found = ?",
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_requirements LIKE '%" + input2 +
+            "%' AND " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'" +
+            " AND " + this.getKey(usetable) + "_percentage = ?" +
+            " AND " + this.getKey(usetable) + "_found = ?",
             [input4,input5]
         )
     }
-    SearchByTableLocPer(input1,input3,input4){
+    SearchByTableLocPer(usetable,input3,input4){
         return this.all(
-            "SELECT * FROM " + input1 +
-            " WHERE " + this.getKey(input1) + "_location LIKE '%" + input3 +"%'" +
-            " AND " + this.getKey(input1) + "_percentage = ?",
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'" +
+            " AND " + this.getKey(usetable) + "_percentage = ?",
             [input4]
         )
     }
-    SearchByTableLocFound(input1,input3,input5){
+    SearchByTableLocFound(usetable,input3,input5){
         return this.all(
-            "SELECT * FROM " + input1 +
-            " WHERE " + this.getKey(input1) + "_location LIKE '%" + input3 +"%'" +
-            " AND " + this.getKey(input1) + "_found = ?",
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'" +
+            " AND " + this.getKey(usetable) + "_found = ?",
             [input5]
         )
     }
-    SearchByTablePerFound(input1,input4,input5){
+    SearchByTablePerFound(usetable,input4,input5){
         return this.all(
-            "SELECT * FROM " + input1 +
-            " WHERE " + this.getKey(input1) + "_percentage = ?" +
-            " AND " + this.getKey(input1) + "_found = ?",
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_percentage = ?" +
+            " AND " + this.getKey(usetable) + "_found = ?",
             [input4,input5]
         )
     }
-    SearchByTableReqPerFound(input1,input2,input4,input5){
+    SearchByTableReqPerFound(usetable,input2,input4,input5){
         return this.all(
-            "SELECT * FROM " + input1 +
-            " WHERE " + this.getKey(input1) + "_requirements LIKE '%" + input2 +
-            "%' AND " + this.getKey(input1) + "_percentage = ?" +
-            " AND " + this.getKey(input1) + "_found = ?",
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_requirements LIKE '%" + input2 +
+            "%' AND " + this.getKey(usetable) + "_percentage = ?" +
+            " AND " + this.getKey(usetable) + "_found = ?",
             [input4,input5]
         )
     }
-    SearchByTableLocPerFound(input1,input3,input4,input5){
+    SearchByTableLocPerFound(usetable,input3,input4,input5){
         return this.all(
-            "SELECT * FROM " + input1 +
-            " WHERE " + this.getKey(input1) + "_location LIKE '%" + input3 +"%'" +
-            " AND " + this.getKey(input1) + "_percentage = ?" +
-            " AND " + this.getKey(input1) + "_found = ?",
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'" +
+            " AND " + this.getKey(usetable) + "_percentage = ?" +
+            " AND " + this.getKey(usetable) + "_found = ?",
             [input4,input5]
+        )
+    }
+    SearchByTableName(usetable,input1){
+        return this.all(
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_name LIKE '%" + input1 +"%'",
+            []
+        )
+    }
+    SearchByTableNameReq(usetable,input1,input2){
+        return this.all(
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_name LIKE '%" + input1 +"%'" +
+            " AND " + this.getKey(usetable) + "_requirements LIKE '%" + input2 +"%'",
+            []
+        )
+    }
+    SearchByTableNameLoc(usetable,input1,input3){
+        return this.all(
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_name LIKE '%" + input1 +"%'" +
+            " AND " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'",
+            []
+        )
+    }
+    SearchByTableNamePer(usetable,input1,input4){
+        return this.all(
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_name LIKE '%" + input1 +"%'" +
+            " AND " + this.getKey(usetable) + "_percentage = ?",
+            [input4]
+        )
+    }
+    SearchByTableNameFound(usetable,input1,input5){
+        return this.all(
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_name LIKE '%" + input1 +"%'" +
+            " AND " + this.getKey(usetable) + "_found = ?",
+            [input5]
+        )
+    }
+    SearchByTableNameReqLoc(usetable,input1,input2,input3){
+        return this.all(
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_name LIKE '%" + input1 +"%'" +
+            " AND " + this.getKey(usetable) + "_requirements LIKE '%" + input2 +"%'" +
+            " AND " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'",
+            []
+        )
+    }
+    SearchByTableNameReqPer(usetable,input1,input2,input4){
+        return this.all(
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_name LIKE '%" + input1 +"%'" +
+            " AND " + this.getKey(usetable) + "_requirements LIKE '%" + input2 +"%'" +
+            " AND " + this.getKey(usetable) + "_percentage = ?",
+            [input4]
+        )
+    }
+    SearchByTableNameReqFound(usetable,input1,input2,input5){
+        return this.all(
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_name LIKE '%" + input1 +"%'" +
+            " AND " + this.getKey(usetable) + "_requirements LIKE '%" + input2 +"%'" +
+            " AND " + this.getKey(usetable) + "_found = ?",
+            [input5]
+        )
+    }
+    SearchByTableNameLocPer(usetable,input1,input3,input4){
+        return this.all(
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_name LIKE '%" + input1 +"%'" +
+            " AND " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'" +
+            " AND " + this.getKey(usetable) + "_percentage = ?",
+            [input4]
+        )
+    }
+    SearchByTableNameLocFound(usetable,input1,input3,input5){
+        return this.all(
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_name LIKE '%" + input1 +"%'" +
+            " AND " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'" +
+            " AND " + this.getKey(usetable) + "_found = ?",
+            [input5]
+        )
+    }
+    SearchByTableNamePerFound(usetable,input1,input4,input5){
+        return this.all(
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_name LIKE '%" + input1 +"%'" +
+            " AND " + this.getKey(usetable) + "_percentage = ?" +
+            " AND " + this.getKey(usetable) + "_found = ?",
+            [input4,input5]
+        )
+    }
+    SearchByTableNameReqLocPer(usetable,input1,input2,input3,input4){
+        return this.all(
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_name LIKE '%" + input1 +"%'" +
+            " AND " + this.getKey(usetable) + "_requirements LIKE '%" + input2 +"%'" +
+            " AND " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'" +
+            " AND " + this.getKey(usetable) + "_percentage = ?",
+            [input4]
+        )
+    }
+    SearchByTableNameReqLocFound(usetable,input1,input2,input3,input5){
+        return this.all(
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_name LIKE '%" + input1 +"%'" +
+            " AND " + this.getKey(usetable) + "_requirements LIKE '%" + input2 +"%'" +
+            " AND " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'" +
+            " AND " + this.getKey(usetable) + "_found = ?",
+            [input5]
+        )
+    }
+    SearchByTableNameLocPerFound(usetable,input1,input3,input4,input5){
+        return this.all(
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_name LIKE '%" + input1 +"%'" +
+            " AND " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'" +
+            " AND " + this.getKey(usetable) + "_percentage = ?" +
+            " AND " + this.getKey(usetable) + "_found = ?",
+            [input4,input5]
+        )
+    }
+    SearchByTableNameReqLocPerFound(usetable,input1,input2,input3,input4,input5){
+        return this.all(
+            "SELECT * FROM " + usetable +
+            " WHERE " + this.getKey(usetable) + "_name LIKE '%" + input1 +"%'" +
+            " AND " + this.getKey(usetable) + "_requirements LIKE '%" + input2 +"%'" +
+            " AND " + this.getKey(usetable) + "_location LIKE '%" + input3 +"%'" +
+            " AND " + this.getKey(usetable) + "_percentage = ?" +
+            " AND " + this.getKey(usetable) + "_found = ?",
+            [input4,input5]
+        )
+    }
+
+
+    ADDInsert(usetable,input1,input2,input3,input4,input5){
+        return this.all(
+            "INSERT INTO " + usetable + " VALUES(?,?,?,?)",
+            [input2,input3,input4,input5]
         )
     }
 

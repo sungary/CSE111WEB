@@ -8,6 +8,7 @@
     <script>
         function RUNQ(){
             var task = document.getElementById("TASK").value;
+            var usetable = document.getElementById("usetable").value;
             var input1 = document.getElementById("input1").value;
             var input2 = document.getElementById("input2").value;
             var input3 = document.getElementById("input3").value;
@@ -20,7 +21,7 @@
             const API_URL = `http://127.0.0.1:8092/task`;
             axios.get(`${API_URL}`, {
                 params: {
-                    input1,input2,input3,input4,input5,task
+                    input1,input2,input3,input4,input5,task,usetable
                 }
             }).then(response => {
                //console.log(response.data.data);
@@ -83,6 +84,7 @@
     </p>
     
     <h4>
+        <input type="usetable" placeholder="Table" id=usetable>
         <input type="text1" placeholder="Name" id="input1">
         <input type="text2" placeholder="Requirements" id="input2">
         <input type="text3" placeholder="Location" id="input3">

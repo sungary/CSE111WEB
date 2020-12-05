@@ -31,6 +31,7 @@ app.get("/", (req, res, next) => {
 app.get("/task", (req, res, next) => {
     // console.log("TEST")
     let task = req.query.task;
+    let usetable = req.query.usetable;
     let input1 = req.query.input1;
     let input2 = req.query.input2;
     let input3 = req.query.input3;
@@ -38,7 +39,7 @@ app.get("/task", (req, res, next) => {
     let input5 = req.query.input5;
     // console.log(input1);
 
-    datab.RUN(task,input1,input2,input3,input4,input5)
+    datab.RUN(task,usetable,input1,input2,input3,input4,input5)
         .then((table) => {
             res.json({
                 "message": "success",
