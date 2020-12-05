@@ -46,10 +46,10 @@ app.get("/task", (req, res, next) => {
                 "data": table
             })
         })
-        .catch((err) => {
-            res.status(400).json({ "error": err.message });
-            return;
-        })
+        // .catch((err) => {
+        //     res.status(400).json({ "error": err.message });
+        //     return;
+        // })
 });
 
 
