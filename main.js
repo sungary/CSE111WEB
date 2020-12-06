@@ -163,23 +163,6 @@ class datamain{
             } else if(usetable != "" && input1 != "" && input2 != "" && input3 != "" && input4 != "" && input5 != ""){
                 return this.DeleteByTableNameReqLocPerFound(usetable,input1,input2,input3,input4,input5);
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             // else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 == ""){
             //     return this.DeleteByTableName(usetable,input1);
             // } else if(usetable != "" && input1 == "" && input2 != "" && input3 == "" && input4 == "" && input5 == ""){
@@ -198,12 +181,79 @@ class datamain{
 
 
         } else if(task == "EDIT"){
+            if(usetable != "" && input1 == "" && input2 == "" && input3 == "" && input4 == "" && input5 == ""){
+                return this.EditByTable(usetable);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 == "" && input4 == "" && input5 == ""){
+                return this.EditByTableReq(usetable,input2);
+            } else if(usetable != "" && input1 == "" && input2 == "" && input3 != "" && input4 == "" && input5 == ""){
+                return this.EditByTableLoc(usetable,input3);
+            } else if(usetable != "" && input1 == "" && input2 == "" && input3 == "" && input4 != "" && input5 == ""){
+                return this.EditByTablePer(usetable,parseFloat(input4));
+            } else if(usetable != "" && input1 == "" && input2 == "" && input3 == "" && input4 == "" && input5 != ""){
+                return this.EditByTableFound(usetable,input5);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 != "" && input4 == "" && input5 == ""){
+                return this.EditByTableReqLoc(usetable,input2,input3);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 == "" && input4 != "" && input5 == ""){
+                return this.EditByTableReqPer(usetable,input2,input4);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 == "" && input4 == "" && input5 != ""){
+                return this.EditByTableReqFound(usetable,input2,input5);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 != "" && input4 != "" && input5 == ""){
+                return this.EditByTableReqLocPer(usetable,input2,input3,input4);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 != "" && input4 == "" && input5 != ""){
+                return this.EditByTableReqLocFound(usetable,input2,input3,input5);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 != "" && input4 != "" && input5 != ""){
+                return this.EditByTableReqLocPerFound(usetable,input2,input3,input4,input5);
+            } else if(usetable != "" && input1 == "" && input2 == "" && input3 != "" && input4 != "" && input5 == ""){
+                return this.EditByTableLocPer(usetable,input3,input4);
+            } else if(usetable != "" && input1 == "" && input2 == "" && input3 != "" && input4 == "" && input5 != ""){
+                return this.EditByTableLocFound(usetable,input3,input5);
+            } else if(usetable != "" && input1 == "" && input2 == "" && input3 == "" && input4 != "" && input5 != ""){
+                return this.EditByTablePerFound(usetable,input4,input5);
+            } else if(usetable != "" && input1 == "" && input2 != "" && input3 == "" && input4 != "" && input5 != ""){
+                return this.EditByTableReqPerFound(usetable,input2,input4,input5);
+            } else if(usetable != "" && input1 == "" && input2 == "" && input3 != "" && input4 != "" && input5 != ""){
+                return this.EditByTableLocPerFound(usetable,input3,input4,input5);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 == ""){
+                return this.EditByTableName(usetable,input1);
+            } else if(usetable != "" && input1 != "" && input2 != "" && input3 == "" && input4 == "" && input5 == ""){
+                return this.EditByTableNameReq(usetable,input1,input2);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 != "" && input4 == "" && input5 == ""){
+                return this.EditByTableNameLoc(usetable,input1,input3);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 != "" && input5 == ""){
+                return this.EditByTableNamePer(usetable,input1,input4);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 != ""){
+                return this.EditByTableNameFound(usetable,input1,input5);
+            } else if(usetable != "" && input1 != "" && input2 != "" && input3 != "" && input4 == "" && input5 == ""){
+                return this.EditByTableNameReqLoc(usetable,input1,input2,input3);
+            } else if(usetable != "" && input1 != "" && input2 != "" && input3 == "" && input4 != "" && input5 == ""){
+                return this.EditByTableNameReqPer(usetable,input1,input2,input4);
+            } else if(usetable != "" && input1 != "" && input2 != "" && input3 == "" && input4 == "" && input5 != ""){
+                return this.EditByTableNameReqFound(usetable,input1,input2,input5);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 != "" && input4 != "" && input5 == ""){
+                return this.EditByTableNameLocPer(usetable,input1,input3,input4);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 != "" && input4 == "" && input5 != ""){
+                return this.EditByTableNameLocFound(usetable,input1,input3,input5);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 != "" && input5 != ""){
+                return this.EditByTableNamePerFound(usetable,input1,input4,input5);
+            } else if(usetable != "" && input1 != "" && input2 != "" && input3 != "" && input4 != "" && input5 == ""){
+                return this.EditByTableNameReqLocPer(usetable,input1,input2,input3,input4);
+            } else if(usetable != "" && input1 != "" && input2 != "" && input3 != "" && input4 == "" && input5 != ""){
+                return this.EditByTableNameReqLocFound(usetable,input1,input2,input3,input5);
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 != "" && input4 != "" && input5 != ""){
+                return this.EditByTableNameLocPerFound(usetable,input1,input3,input4,input5);
+            } else if(usetable != "" && input1 != "" && input2 != "" && input3 != "" && input4 != "" && input5 != ""){
+                return this.EditByTableNameReqLocPerFound(usetable,input1,input2,input3,input4,input5);
+            }
+
 
         } else {
             
             //document.getElementById("SELECTERROR").innerHTML = "Please Select an Option";
         }
     
+    }
+    EDIT(task,usetable,input1,input2,input3,input4,input5,edit1,edit2,edit3,edit4,edit5){
+
     }
 
     getKey(usetable){

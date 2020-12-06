@@ -38,8 +38,14 @@ app.get("/task", (req, res, next) => {
     let input4 = req.query.input4;
     let input5 = req.query.input5;
     // console.log(input1);
+    let edit1 = req.query.edit1;
+    let edit2 = req.query.edit2;
+    let edit3 = req.query.edit3;
+    let edit4 = req.query.edit4;
+    let edit5 = req.query.edit5;
 
-    datab.RUN(task,usetable,input1,input2,input3,input4,input5)
+    if(task != "EDIT"){
+        datab.RUN(task,usetable,input1,input2,input3,input4,input5)
         .then((table) => {
             res.json({
                 "message": "success",
@@ -50,6 +56,17 @@ app.get("/task", (req, res, next) => {
         //     res.status(400).json({ "error": err.message });
         //     return;
         // })
+    } else if(task == "EDIT"){
+        datab.EDIT(task,usetable,input1,input2,input3,input4,input5,edit1,edit2,edit3,edit4,edit5)
+        .then((table) => {
+            res.json({
+                "message": "success",
+                "data": table
+            })
+        })
+    }
+    
+
 });
 
 
