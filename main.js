@@ -228,13 +228,13 @@ class datamain{
             // edit by table by name
             else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 == "" && edit1 != "" && edit2 == "" && edit3 == "" && edit4 == "" && edit5 == ""){
                 return this.EditByTableNameSETName(usetable,input1,edit1);
-            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 == "" && edit1 != "" && edit2 != "" && edit3 == "" && edit4 == "" && edit5 == ""){
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 == "" && edit1 == "" && edit2 != "" && edit3 == "" && edit4 == "" && edit5 == ""){
                 return this.EditByTableNameSETReq(usetable,input1,edit2);
-            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 == "" && edit1 != "" && edit2 == "" && edit3 != "" && edit4 == "" && edit5 == ""){
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 == "" && edit1 == "" && edit2 == "" && edit3 != "" && edit4 == "" && edit5 == ""){
                 return this.EditByTableNameSETLoc(usetable,input1,edit3);
-            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 == "" && edit1 != "" && edit2 == "" && edit3 == "" && edit4 != "" && edit5 == ""){
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 == "" && edit1 == "" && edit2 == "" && edit3 == "" && edit4 != "" && edit5 == ""){
                 return this.EditByTableNameSETPer(usetable,input1,edit4);
-            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 == "" && edit1 != "" && edit2 == "" && edit3 == "" && edit4 == "" && edit5 != ""){
+            } else if(usetable != "" && input1 != "" && input2 == "" && input3 == "" && input4 == "" && input5 == "" && edit1 == "" && edit2 == "" && edit3 == "" && edit4 == "" && edit5 != ""){
                 return this.EditByTableNameSETFound(usetable,input1,edit5);
             } 
             // edit by table by req
@@ -1519,7 +1519,7 @@ class datamain{
         )
     }
 
-    
+
 }
 
 module.exports = datamain
