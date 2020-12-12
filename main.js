@@ -31,7 +31,9 @@ class datamain{
         if(task == "SEARCH"){
             //console.log(input);
             // console.log(input2);
-            if(usetable != "" && input1 == "" && input2 == "" && input3 == "" && input4 == "" && input5 == ""){
+            if(usetable == "" && input1 == "" && input2 == "" && input3 == "" && input4 == "" && input5 == ""){
+                return this.wholetableNoInput();
+            } else if(usetable != "" && input1 == "" && input2 == "" && input3 == "" && input4 == "" && input5 == ""){
                 return this.wholetable(usetable);
             } else if(usetable != "" && input1 == "" && input2 != "" && input3 == "" && input4 == "" && input5 == ""){
                 return this.SearchByTableReq(usetable,input2);
@@ -115,7 +117,14 @@ class datamain{
             else if(usetable == "" && input1 == "" && input2 == "" && input3 == "" && input4 == "" && input5 != ""){
                 return this.SearchByFound(input5);
             } 
-            
+            // search by loc + found
+            else if(usetable == "" && input1 == "" && input2 == "" && input3 != "" && input4 == "" && input5 != ""){
+                return this.SearchByLocFound(input3,input5);
+            } 
+            // search by req + found
+            else if(usetable == "" && input1 == "" && input2 != "" && input3 == "" && input4 == "" && input5 != ""){
+                return this.SearchByReqFound(input2,input5);
+            } 
             
 
         } else if(task == "ADD"){
@@ -418,6 +427,39 @@ class datamain{
         } else if(usetable == "WarriorDreams"){
             return "wd"
         }
+    }
+
+    wholetableNoInput(){
+        return this.all(
+            "SELECT * FROM Bosses" +
+            " UNION " +
+            "SELECT * FROM Charms" +
+            " UNION " + 
+            "SELECT * FROM Colosseum" +
+            " UNION " +
+            "SELECT * FROM DreamWorld" +
+            " UNION " +
+            "SELECT * FROM Dreamers" +
+            " UNION " +
+            "SELECT * FROM Equipment" +
+            " UNION " +
+            "SELECT * FROM GodHome" + 
+            " UNION " +
+            "SELECT * FROM GrimmTroupe" +
+            " UNION " +
+            "SELECT * FROM MaskShards" +
+            " UNION " +
+            "SELECT * FROM NailArt" +
+            " UNION " +
+            "SELECT * FROM NailUpgrades" +
+            " UNION " +
+            "SELECT * FROM Spells" +
+            " UNION " +
+            "SELECT * FROM VesselFragments" +
+            " UNION " +
+            "SELECT * FROM WarriorDreams",
+            []
+        )
     }
 
     wholetable(usetable){
@@ -1292,43 +1334,43 @@ class datamain{
         return this.all(
             "SELECT * FROM Bosses" +
             " WHERE b_name LIKE " + "'%" + input1 + "%' " + 
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Charms" +
             " WHERE c_name LIKE " + "'%" + input1 + "%' " +
-            "UNION " + 
+            " UNION " + 
             "SELECT * FROM Colosseum" +
             " WHERE co_name LIKE " + "'%" + input1 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM DreamWorld" +
             " WHERE dw_name LIKE " + "'%" + input1 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Dreamers" +
             " WHERE d_name LIKE " + "'%" + input1 + "%' "  +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Equipment" +
             " WHERE e_name LIKE " + "'%" + input1 + "%' "  +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM GodHome" +
             " WHERE gh_name LIKE " + "'%" + input1 + "%' "  +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM GrimmTroupe" +
             " WHERE gt_name LIKE " + "'%" + input1 + "%' "  +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM MaskShards" +
             " WHERE m_name LIKE " + "'%" + input1 + "%' "  +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM NailArt" +
             " WHERE na_name LIKE " + "'%" + input1 + "%' "  +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM NailUpgrades" +
             " WHERE nu_name LIKE " + "'%" + input1 + "%' "  +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Spells" +
             " WHERE s_name LIKE " + "'%" + input1 + "%' "  +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM VesselFragments" +
             " WHERE v_name LIKE " + "'%" + input1 + "%' "  +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM WarriorDreams" +
             " WHERE wd_name LIKE " + "'%" + input1 + "%' " ,
             []
@@ -1338,43 +1380,43 @@ class datamain{
         return this.all(
             "SELECT * FROM Bosses" +
             " WHERE b_requirements LIKE " + "'%" + input2 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Charms" +
             " WHERE c_requirements LIKE " + "'%" + input2 + "%' " +
-            "UNION " + 
+            " UNION " + 
             "SELECT * FROM Colosseum" +
             " WHERE co_requirements LIKE " + "'%" + input2 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM DreamWorld" +
             " WHERE dw_requirements LIKE " + "'%" + input2 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Dreamers" +
             " WHERE d_requirements LIKE " + "'%" + input2 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Equipment" +
             " WHERE e_requirements LIKE " + "'%" + input2 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM GodHome" +
             " WHERE gh_requirements LIKE " + "'%" + input2 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM GrimmTroupe" +
             " WHERE gt_requirements LIKE " + "'%" + input2 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM MaskShards" +
             " WHERE m_requirements LIKE " + "'%" + input2 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM NailArt" +
             " WHERE na_requirements LIKE " + "'%" + input2 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM NailUpgrades" +
             " WHERE nu_requirements LIKE " + "'%" + input2 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Spells" +
             " WHERE s_requirements LIKE " + "'%" + input2 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM VesselFragments" +
             " WHERE v_requirements LIKE " + "'%" + input2 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM WarriorDreams" +
             " WHERE wd_requirements LIKE " + "'%" + input2 + "%' ",
             []
@@ -1384,43 +1426,43 @@ class datamain{
         return this.all(
             "SELECT * FROM Bosses" +
             " WHERE b_location LIKE " + "'%" + input3 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Charms" +
             " WHERE c_location LIKE " + "'%" + input3 + "%' " +
-            "UNION " + 
+            " UNION " + 
             "SELECT * FROM Colosseum" +
             " WHERE co_location LIKE " + "'%" + input3 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM DreamWorld" +
             " WHERE dw_location LIKE " + "'%" + input3 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Dreamers" +
             " WHERE d_location LIKE " + "'%" + input3 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Equipment" +
             " WHERE e_location LIKE " + "'%" + input3 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM GodHome" +
             " WHERE gh_location LIKE " + "'%" + input3 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM GrimmTroupe" +
             " WHERE gt_location LIKE " + "'%" + input3 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM MaskShards" +
             " WHERE m_location LIKE " + "'%" + input3 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM NailArt" +
             " WHERE na_location LIKE " + "'%" + input3 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM NailUpgrades" +
             " WHERE nu_location LIKE " + "'%" + input3 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Spells" +
             " WHERE s_location LIKE " + "'%" + input3 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM VesselFragments" +
             " WHERE v_location LIKE " + "'%" + input3 + "%' " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM WarriorDreams" +
             " WHERE wd_location LIKE " + "'%" + input3 + "%' ",
             []
@@ -1430,43 +1472,43 @@ class datamain{
         return this.all(
             "SELECT * FROM Bosses" +
             " WHERE b_percentage = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Charms" +
             " WHERE c_percentage = ? " +
-            "UNION " + 
+            " UNION " + 
             "SELECT * FROM Colosseum" +
             " WHERE co_percentage = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM DreamWorld" +
             " WHERE dw_percentage = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Dreamers" +
             " WHERE d_percentage = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Equipment" +
             " WHERE e_percentage = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM GodHome" +
             " WHERE gh_percentage = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM GrimmTroupe" +
             " WHERE gt_percentage = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM MaskShards" +
             " WHERE m_percentage = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM NailArt" +
             " WHERE na_percentage = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM NailUpgrades" +
             " WHERE nu_percentage = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Spells" +
             " WHERE s_percentage = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM VesselFragments" +
             " WHERE v_percentage = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM WarriorDreams" +
             " WHERE wd_percentage = ? ",
             [input4,input4,input4,input4,input4,input4,input4,input4,input4,input4,input4,input4,input4,input4]
@@ -1476,50 +1518,140 @@ class datamain{
         return this.all(
             "SELECT * FROM Bosses" +
             " WHERE b_found = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Charms" +
             " WHERE c_found = ? " +
-            "UNION " + 
+            " UNION " + 
             "SELECT * FROM Colosseum" +
             " WHERE co_found = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM DreamWorld" +
             " WHERE dw_found = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Dreamers" +
             " WHERE d_found = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Equipment" +
             " WHERE e_found = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM GodHome" +
             " WHERE gh_found = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM GrimmTroupe" +
             " WHERE gt_found = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM MaskShards" +
             " WHERE m_found = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM NailArt" +
             " WHERE na_found = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM NailUpgrades" +
             " WHERE nu_found = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM Spells" +
             " WHERE s_found = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM VesselFragments" +
             " WHERE v_found = ? " +
-            "UNION " +
+            " UNION " +
             "SELECT * FROM WarriorDreams" +
             " WHERE wd_found = ? ",
             [input5,input5,input5,input5,input5,input5,input5,input5,input5,input5,input5,input5,input5,input5]
         )
     }
-
-
+    SearchByLocFound(input3,input5){
+        return this.all(
+            "SELECT * FROM Bosses" +
+            " WHERE b_location LIKE " + "'%" + input3 + "%' " + " AND " + "b_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM Charms" +
+            " WHERE c_location LIKE " + "'%" + input3 + "%' " + " AND " + "c_found = " + "'" + input5 + "'" +
+            " UNION " + 
+            "SELECT * FROM Colosseum" +
+            " WHERE co_location LIKE " + "'%" + input3 + "%' " + " AND " + "co_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM DreamWorld" +
+            " WHERE dw_location LIKE " + "'%" + input3 + "%' " + " AND " + "dw_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM Dreamers" +
+            " WHERE d_location LIKE " + "'%" + input3 + "%' " + " AND " + "d_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM Equipment" +
+            " WHERE e_location LIKE " + "'%" + input3 + "%' " + " AND " + "e_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM GodHome" +
+            " WHERE gh_location LIKE " + "'%" + input3 + "%' " + " AND " + "gh_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM GrimmTroupe" +
+            " WHERE gt_location LIKE " + "'%" + input3 + "%' " + " AND " + "gt_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM MaskShards" +
+            " WHERE m_location LIKE " + "'%" + input3 + "%' " + " AND " + "m_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM NailArt" +
+            " WHERE na_location LIKE " + "'%" + input3 + "%' " + " AND " + "na_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM NailUpgrades" +
+            " WHERE nu_location LIKE " + "'%" + input3 + "%' " + " AND " + "nu_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM Spells" +
+            " WHERE s_location LIKE " + "'%" + input3 + "%' " + " AND " + "s_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM VesselFragments" +
+            " WHERE v_location LIKE " + "'%" + input3 + "%' " + " AND " + "v_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM WarriorDreams" +
+            " WHERE wd_location LIKE " + "'%" + input3 + "%' " + " AND " + "wd_found = " + "'" + input5 + "'" ,
+            []
+        )
+    }
+    SearchByReqFound(input2,input5){
+        return this.all(
+            "SELECT * FROM Bosses" +
+            " WHERE b_requirements LIKE " + "'%" + input2 + "%' " + " AND " + "b_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM Charms" +
+            " WHERE c_requirements LIKE " + "'%" + input2 + "%' " + " AND " + "c_found = " + "'" + input5 + "'" +
+            " UNION " + 
+            "SELECT * FROM Colosseum" +
+            " WHERE co_requirements LIKE " + "'%" + input2 + "%' " + " AND " + "co_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM DreamWorld" +
+            " WHERE dw_requirements LIKE " + "'%" + input2 + "%' " + " AND " + "dw_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM Dreamers" +
+            " WHERE d_requirements LIKE " + "'%" + input2 + "%' " + " AND " + "d_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM Equipment" +
+            " WHERE e_requirements LIKE " + "'%" + input2 + "%' " + " AND " + "e_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM GodHome" +
+            " WHERE gh_requirements LIKE " + "'%" + input2 + "%' " + " AND " + "gh_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM GrimmTroupe" +
+            " WHERE gt_requirements LIKE " + "'%" + input2 + "%' " + " AND " + "gt_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM MaskShards" +
+            " WHERE m_requirements LIKE " + "'%" + input2 + "%' " + " AND " + "m_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM NailArt" +
+            " WHERE na_requirements LIKE " + "'%" + input2 + "%' " + " AND " + "na_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM NailUpgrades" +
+            " WHERE nu_requirements LIKE " + "'%" + input2 + "%' " + " AND " + "nu_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM Spells" +
+            " WHERE s_requirements LIKE " + "'%" + input2 + "%' " + " AND " + "s_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM VesselFragments" +
+            " WHERE v_requirements LIKE " + "'%" + input2 + "%' " + " AND " + "v_found = " + "'" + input5 + "'" +
+            " UNION " +
+            "SELECT * FROM WarriorDreams" +
+            " WHERE wd_requirements LIKE " + "'%" + input2 + "%' " + " AND " + "wd_found = " + "'" + input5 + "'" ,
+            []
+        )
+    }
 }
 
 module.exports = datamain
